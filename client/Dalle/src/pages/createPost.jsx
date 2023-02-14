@@ -44,8 +44,30 @@ const createPost = () => {
     setForm({...form, [event.target.name]: event.target.value})
   }
 
-  function handleSubmit() {
+  async function handleSubmit(e) {
+    e.preventDefault();
 
+    if (form.prompt && form.photo) {
+      setLoading(true);
+      try {
+        const response = await fetch('http://localhost:3000/api/vi/post', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(form)
+        })
+
+        await response.json();
+        navigate('/');
+      } catch (error) {
+        alert(error);
+      } finally {
+        setLoading(false);
+      }
+    } else [
+      alert("please enter qa prommpt and generate an image")
+    ]
   }
 
   function handleSurpriseMe() {
