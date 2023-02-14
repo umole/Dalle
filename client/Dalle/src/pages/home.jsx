@@ -224,7 +224,7 @@ const Home = () => {
                 />
               ) : (
                 <RenderCards
-                  data={[]}
+                  data={allPosts}
                   title="No Posts Yet"
                 />
               )}
