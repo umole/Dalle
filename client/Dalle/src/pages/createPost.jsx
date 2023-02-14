@@ -50,10 +50,10 @@ const createPost = () => {
     if (form.prompt && form.photo) {
       setLoading(true);
       try {
-        const response = await fetch('http://localhost:3000/api/vi/post', {
+        const response = await fetch('http://localhost:3000/api/v1/post', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
+            'content-Type': 'application/json',
           },
           body: JSON.stringify(form)
         })
@@ -65,9 +65,9 @@ const createPost = () => {
       } finally {
         setLoading(false);
       }
-    } else [
-      alert("please enter qa prommpt and generate an image")
-    ]
+    } else {
+      alert("please enter ya prommpt and generate an image")
+    }
   }
 
   function handleSurpriseMe() {
